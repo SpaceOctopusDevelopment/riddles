@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+<meta charset="UTF-8" />
+<title>{% block title %}Welcome!{% endblock %}</title>
+{% block stylesheets %}{% endblock %}
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="bower_components/gumby/css/gumby.css">
+<script src="bower_components/gumby/js/libs/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div class="row navbar" id="nav1">
+    <!-- Toggle for mobile navigation, targeting the <ul> -->
+    <a class="toggle" gumby-trigger="#nav1 > ul" href="#"><i class="icon-menu"></i></a>
+    <ul class="eight columns">
+        <li><a href="/about">about</a></li>
+        <li>
+        <a href="/add">add riddle</a>
+        </li>
+        <li><a href="/">solve different riddle</a></li>
+    </ul>
+</div>
+<div class="row">
+    <div class="twelve columns">
+        <h1>Riddles</h1> 
+    </div> 
+</div> 
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script>
+var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
+if(!oldieCheck) {
+    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+} else {
+    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+}
+</script>
+<script>
+if(!window.jQuery) {
+    if(!oldieCheck) {
+        document.write('<script src="bower_components/gumby/js/libs/jquery-2.0.2.min.js"><\/script>');
+    } else {
+        document.write('<script src="bower_components/gumby/js/libs/jquery-1.10.1.min.js"><\/script>');
+    }
+}
+</script>
+<script gumby-touch="js/libs" src="bower_components/gumby/js/libs/gumby.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.retina.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.fixed.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.skiplink.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.toggleswitch.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.checkbox.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.radiobtn.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.tabs.js"></script>
+<script src="bower_components/gumby/js/libs/ui/gumby.navbar.js"></script>
+<script src="bower_components/gumby/js/libs/ui/jquery.validation.js"></script>
+<script src="bower_components/gumby/js/libs/gumby.init.js"></script>
+</body>
 </html>

@@ -19,4 +19,8 @@ class DefaultController extends Controller
         //I hate camelCase 
         return $this->render('default/about.html.twig');
     }
+
+    public function addAction(){
+        return $this->render('default/add.html.twig'); 
+    }
 }
